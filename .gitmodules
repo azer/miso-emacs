@@ -1,0 +1,7 @@
+[submodule "jungle-theme"]
+        path = jungle-theme
+        url = https://github.com/azer/emacs-jungle-theme
+
+[submodule "use-package"]
+        path = use-package
+        url =  https://github.com/jwiegley/use-package

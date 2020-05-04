@@ -1,0 +1,12 @@
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c p f") 'counsel-projectile-find-file)
+(define-key projectile-mode-map (kbd "C-c p p") 'counsel-projectile-switch-project)
+(define-key projectile-mode-map (kbd "C-c p b") 'counsel-projectile-switch-to-buffer)
+(define-key projectile-mode-map (kbd "C-c p s") 'counsel-projectile-rg)
+(define-key projectile-mode-map (kbd "C-c p r") 'projectile-replace-regexp)
+
+(define-key projectile-mode-map (kbd "M-p f") 'counsel-projectile-find-file)
+(define-key projectile-mode-map (kbd "M-p p") 'counsel-projectile-switch-project)
+(define-key projectile-mode-map (kbd "M-p b") 'counsel-projectile-switch-to-buffer)
+(define-key projectile-mode-map (kbd "M-p s") 'counsel-projectile-rg)
+(define-key projectile-mode-map (kbd "M-p r") 'projectile-replace-regexp)
