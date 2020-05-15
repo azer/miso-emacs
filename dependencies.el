@@ -37,7 +37,7 @@
 (use-package undo-tree :ensure t)
 (use-package flyspell-correct
   :ensure t
-  :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
+  :bind (:map flyspell-mode-map ("M-i c" . flyspell-correct-wrapper)))
 
 (use-package flyspell-correct-ivy :ensure t :after flyspell-correct)
 
@@ -108,7 +108,7 @@
 ;; use ivy to correct words
 (use-package flyspell-correct
   :after flyspell
-  :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
+  :bind (:map flyspell-mode-map ("M-i c" . flyspell-correct-wrapper)))
 
 ;; dictionary
 (use-package define-word :ensure t)
