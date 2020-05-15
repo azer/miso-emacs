@@ -1,4 +1,4 @@
-# misomacs
+# miso emacs
 
 Opinionated Emacs distro for minimalists.
 
