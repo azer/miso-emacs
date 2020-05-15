@@ -1,4 +1,4 @@
-# miso emacs
+# miso-emacs
 
 Opinionated Emacs distro for minimalists.
 
@@ -80,7 +80,6 @@ Others:
 | <kbd>C-w</kbd>  | Kill region |
 | <kbd>C-r</kbd> | Query & replace regexp in the buffer |
 | <kbd>C-M-r</kbd> | Query replace at cursor thing |
-
 | <kbd>M-;</kbd> | Comment/uncomment region |
 | <kbd>M-c</kbd> | Capitalize the word |
 
