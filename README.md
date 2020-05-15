@@ -7,7 +7,7 @@ Features:
 - **Writing-mode first:** Spell checker, dictionary and word counter is available for markdown-modes. ![](https://cldup.com/2zt2RPJFwM.png)
 - **M-i:** Most commands are binded to `M-i`. (See below).
 - **Rabbit-mode enabled:** Use left/right buttons to undo/redo, up/down to jump.
-- **IDE:** LSP is enabled by default. A workflow shortcut for DAP (debugger) is provided. Currently supported languages: Go and TypeScript. ![](https://cldup.com/J-zIC1aNBx.png)
+- **IDE:** LSP is enabled by default. A workflow shortcut for DAP (debugger) is provided. Currently supported languages: Go and TypeScript. ![](https://cldup.com/lWhUHdCR7A.png)
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
