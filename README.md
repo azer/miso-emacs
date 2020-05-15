@@ -49,8 +49,8 @@ Programming:
 | <kbd>M-i r</kbd> | Rename (LSP) |
 | <kbd>M-i f</kbd> | Execute code action suggested by LSP |
 | <kbd>M-i j</kbd> | Jump to a symbol in the buffer |
-| <kbd>M-i <up></kbd> | Push local branch to remote |
-| <kbd>M-i <down></kbd> | Pull from remote branch |
+| <kbd>M-i up</kbd> | Push local branch to remote |
+| <kbd>M-i down</kbd> | Pull from remote branch |
 | <kbd>C-c C-j</kbd> | Jump to definition |
 
 Writing:
@@ -61,8 +61,8 @@ Writing:
 | <kbd>M-i t</kbd> | Generate ToC for Markdown |
 | <kbd>M-i j</kbd> | Jump to a title |
 | <kbd>M-i w</kbd> | Create and switch to a new scratch buffer |
-| <kbd>M-i <up></kbd> | Push local branch to remote |
-| <kbd>M-i <down></kbd> | Pull from remote branch |
+| <kbd>M-i up</kbd> | Push local branch to remote |
+| <kbd>M-i down</kbd> | Pull from remote branch |
 
 Project(ile):
 
@@ -76,6 +76,8 @@ Project(ile):
 
 Others:
 
+| Key | Command |
+| --- | ------- |
 | <kbd>M-Backspace</kbd>  | Delete backwards |
 | <kbd>C-w</kbd>  | Kill region |
 | <kbd>C-r</kbd> | Query & replace regexp in the buffer |
