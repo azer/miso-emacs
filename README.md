@@ -5,7 +5,7 @@ Opinionated Emacs distro for minimalists.
 Features:
 
 - **Writing-mode first:** Spell checker, dictionary and word counter is available for markdown-modes. ![](https://cldup.com/nAXX_HDpxT.gif)
-- **M-i:** Most commands are binded to `M-i`. (See below).
+- **M-i:** Most commands are bound to `M-i`. (See below).
 - **Rabbit-mode enabled:** Use left/right buttons to undo/redo, up/down to jump.
 - **IDE:** LSP is enabled by default. A workflow shortcut for DAP (debugger) is provided. Currently supported languages: Go and TypeScript. ![](https://cldup.com/lWhUHdCR7A.png)
 
