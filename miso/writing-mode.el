@@ -15,7 +15,8 @@
   (setq-default line-spacing 5)
   (setq global-hl-line-mode nil)
   (setq doom-modeline-enable-word-count t)
-  (local-set-key (kbd "M-=") 'writeroom-adjust-width)
+
+  (local-set-key (kbd "M-=") 'writeroom-fit-window)
   (local-set-key (kbd "M-i d") 'define-word-at-point)
   (local-set-key (kbd "M-i i") 'markdown-toc-generate-or-refresh-toc)
   (local-set-key (kbd "M-i j") 'counsel-semantic-or-imenu)
@@ -24,7 +25,13 @@
   (local-set-key (kbd "M-i p") 'pronounce-at-point)
   (local-set-key (kbd "M-i <up>") 'magit-push-current-to-upstream)
   (local-set-key (kbd "M-i <down>") 'magit-pull-from-upstream)
+  (add-hook 'window-size-change-functions 'on-window-resize)
   )
+
+(defun on-window-resize (frame)
+  (writeroom-fit-window))
+
+
 
 (customize-set-variable 'writeroom-mode-line t)
 
@@ -56,4 +63,23 @@
       (let ((regionp (buffer-substring start end)))
 	(message regionp))
     (thing-at-point 'word))
+  )
+
+(defun writing-block-size ()
+  (if (< (window-total-width) 80)
+      (- (window-total-width) 10)
+    (if (< (window-total-width) 160)
+	(- (window-total-width) 30)
+      (if (< (window-total-width) 300)
+	  130
+	200
+	)))
+  )
+
+
+(defun writeroom-fit-window ()
+  (interactive)
+  (message (number-to-string (window-total-width)))
+  (message (number-to-string (writing-block-size)))
+  (setq visual-fill-column-width (writing-block-size))
   )
