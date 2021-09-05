@@ -39,10 +39,10 @@ Navigation:
 
 | Key | Command |
 | --- | ------- |
-| <kbd>Up</kbd>  | Jump N lines up |
-| <kbd>Down</kbd>  | Jump N lines down |
-| <kbd>Left</kbd>  | Undo |
-| <kbd>Right</kbd>  | Redo |
+| <kbd>M-Up</kbd>  | Jump N lines up |
+| <kbd>M-Down</kbd>  | Jump N lines down |
+| <kbd>M-Left</kbd>  | Undo |
+| <kbd>M-Right</kbd>  | Redo |
 | <kbd>M-o</kbd>  | Switch windows w/ ace-window |
 | <kbd>M-s</kbd>  | Search buffer w/ swiper |
 
@@ -55,9 +55,13 @@ Programming:
 | <kbd>M-i r</kbd> | Rename (LSP) |
 | <kbd>M-i f</kbd> | Execute code action suggested by LSP |
 | <kbd>M-i j</kbd> | Jump to a symbol in the buffer |
-| <kbd>M-i up</kbd> | Push local branch to remote |
-| <kbd>M-i down</kbd> | Pull from remote branch |
-| <kbd>C-c C-j</kbd> | Jump to definition |
+| <kbd>M-i i</kbd> | Re-organize imports |
+| <kbd>M-i g</kbd> | Go-to-imlementation |
+| <kbd>M-i t</kbd> | Go to type definition |
+| <kbd>M-i c</kbd> | Find references |
+| <kbd>M-i -</kbd> | Revert buffer |
+| <kbd>M-\</kbd> | Yasnippet |
+
 
 Writing:
 
@@ -67,8 +71,10 @@ Writing:
 | <kbd>M-i t</kbd> | Generate ToC for Markdown |
 | <kbd>M-i j</kbd> | Jump to a title |
 | <kbd>M-i w</kbd> | Create and switch to a new scratch buffer |
-| <kbd>M-i up</kbd> | Push local branch to remote |
-| <kbd>M-i down</kbd> | Pull from remote branch |
+| <kbd>M-i t</kbd> | Google translate at point |
+| <kbd>M-i p</kbd> | Pronounce at point |
+| <kbd>M-i =</kbd> | Reset sizing |
+
 
 Project(ile):
 
@@ -89,6 +95,8 @@ Git:
 | <kbd>M-g b</kbd> | Git diff for the active buffer |
 | <kbd>M-g -</kbd> | Stash the worktree |
 | <kbd>M-g =</kbd> | Apply stash |
+| <kbd>M-i up</kbd> | Push local branch to remote |
+| <kbd>M-i down</kbd> | Pull from remote branch |
 
 Others:
 
