@@ -5,7 +5,7 @@ Opinionated Emacs distro for minimalists.
 | Writing-mode | Programming-mode |
 | --- | --- |
 | Centered writing layout, spell correction, dictionary and pronounciation shortcuts in markdown modes | Dark color scheme, LSP mode enabled for programing |
-| ![ezgif-6-106b41ad3d74](https://user-images.githubusercontent.com/13072/132132975-9f5be14b-8289-4726-8e36-04dc8b7a3321.gif) | <img width="1082" alt="Screenshot 2021-09-05 at 17 52 36" src="https://user-images.githubusercontent.com/13072/132133149-206a8907-8646-432d-9f49-cbc4467edbd9.png"> |
+| ![ezgif-6-01ab51106bba](https://user-images.githubusercontent.com/13072/132133441-7c7cfcfe-f1a4-44ae-97f1-4266e5056e16.gif) | <img width="1082" alt="Screenshot 2021-09-05 at 17 52 36" src="https://user-images.githubusercontent.com/13072/132133149-206a8907-8646-432d-9f49-cbc4467edbd9.png"> |
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
