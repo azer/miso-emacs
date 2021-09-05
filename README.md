@@ -2,12 +2,10 @@
 
 Opinionated Emacs distro for minimalists.
 
-Features:
-
-- **Writing-mode first:** Spell checker, dictionary and word counter is available for markdown-modes. ![](https://cldup.com/nAXX_HDpxT.gif)
-- **M-i:** Most commands are bound to `M-i`. (See below).
-- **Rabbit-mode enabled:** Use left/right buttons to undo/redo, up/down to jump.
-- **IDE:** LSP is enabled by default. A workflow shortcut for DAP (debugger) is provided. Currently supported languages: Go and TypeScript. ![](https://cldup.com/lWhUHdCR7A.png)
+| Writing-mode | Programming-mode |
+| --- | --- |
+| Centered writing layout, spell correction, dictionary and pronounciation shortcuts in markdown modes | Dark color scheme, LSP mode enabled for programing |
+| ![ezgif-6-106b41ad3d74](https://user-images.githubusercontent.com/13072/132132975-9f5be14b-8289-4726-8e36-04dc8b7a3321.gif) | <img width="1082" alt="Screenshot 2021-09-05 at 17 52 36" src="https://user-images.githubusercontent.com/13072/132133149-206a8907-8646-432d-9f49-cbc4467edbd9.png"> |
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
@@ -31,6 +29,12 @@ Install icon fonts;
 
 ```
 M-x all-the-icons-install-fonts
+```
+
+Install ispell:
+
+```
+$ brew install ispell
 ```
 
 # Bindings
