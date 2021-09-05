@@ -1,0 +1,21 @@
+(defun enable-mac-config ()
+  (interactive)
+  (global-set-key (kbd "s-c") 'kill-ring-save)
+  (global-set-key (kbd "s-x") 'kill-region)
+  (global-set-key (kbd "s-v") 'yank)
+  (global-set-key (kbd "s-l") 'mark-from-point-to-end-of-line)
+  (global-set-key (kbd "C-l") 'set-mark-command)
+  (global-set-key (kbd "s-z") 'undo)
+  (global-set-key (kbd "s-Z") 'redo)
+  (global-set-key (kbd "s-p") 'counsel-projectile-find-file)
+  (setq ns-alternate-modifier 'meta)
+  (setq ns-right-alternate-modifier 'none)
+  )
+
+(defun mark-from-point-to-end-of-line ()
+  "Marks everything from point to end of line"
+  (interactive)
+  (set-mark (line-end-position))
+  (activate-mark))
+
+(enable-mac-config)

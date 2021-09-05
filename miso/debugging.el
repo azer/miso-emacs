@@ -50,4 +50,4 @@
 
 (add-hook 'prog-mode-hook (lambda ()
 			    (interactive)
-			    (local-set-key (kbd "M-i d") 'debugging-mode)))
+			    (local-set-key (kbd "M-i b") 'debugging-mode)))
