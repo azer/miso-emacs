@@ -2,12 +2,21 @@
 
 (package-initialize)
 
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(setq package-archives
+      '(("melpa" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/melpa/")
+        ("org"   . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/org/")
+        ("gnu"   . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/gnu/")))
+
 
 (eval-when-compile
   (add-load-path "use-package")
   (require 'use-package))
+
+(use-package exec-path-from-shell :ensure t
+  :init
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))
+  )
 
 (use-package markdown-mode :ensure t)
 
@@ -16,6 +25,7 @@
   :config
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1)
+  (setq lsp-completion-provider :capf)
   )
 
 (use-package company-quickhelp
@@ -26,9 +36,9 @@
     :ensure t))
 
 (use-package ace-window :ensure t)
+(use-package counsel :ensure t)
 
 (use-package ivy :ensure t)
-(use-package counsel :ensure t)
 (use-package swiper :ensure t)
 (use-package projectile :ensure t)
 (use-package counsel-projectile :ensure t)
@@ -68,15 +78,13 @@
 (use-package dap-mode :ensure t)
 (use-package go-dlv :ensure t)
 
-(use-package company-lsp
-  :ensure t
-  :commands company-lsp
-  )
-
 (use-package lsp-ui
   :ensure t
   :commands lsp-ui-mode
   :init
+  :config
+  (setq lsp-headerline-breadcrumb-enable t)
+  (setq lsp-ui-doc-position 'at-point)
   )
 
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
@@ -87,6 +95,8 @@
 
 ;; better search & replace
 (use-package anzu :ensure t)
+
+(use-package ctrlf :ensure t)
 
 (use-package rg :ensure t
   :init
@@ -104,6 +114,11 @@
 (use-package doom-modeline :ensure t
   :init (doom-modeline-mode 1))
 
+(use-package doom-themes :ensure t
+   :init
+   (doom-themes-visual-bell-config)
+  )
+
 ;; use ivy to correct words
 (use-package flyspell-correct
   :after flyspell
@@ -111,6 +126,15 @@
 
 ;; dictionary
 (use-package define-word :ensure t)
+
+(use-package popup :ensure t)
+
+;; translate
+(use-package google-translate :ensure t
+  :config
+  (require 'google-translate)
+  (require 'google-translate-default-ui)
+  )
 
 ;; git
 (use-package gitattributes-mode :ensure t :defer t)
@@ -121,7 +145,14 @@
   :custom
   (magit-auto-revert-mode nil)
   :bind
-  ("M-g s" . magit-status))
+  ("M-g g" . magit-status)
+  ("M-g b" . 'magit-diff-buffer-file)
+  ("M-g d" . 'magit-diff-working-tree)
+  ("M-g -" . 'magit-stash-worktree)
+  ("M-g =" . 'magit-stash-apply)
+  ("M-g c" . 'magit-commit-worktree)
+  ("M-g s" . 'magit-stage-modified)
+  )
 
 ;; display better diffs
 (use-package git-gutter
@@ -159,6 +190,8 @@
 
 (use-package prettier-js :ensure t)
 
+(use-package yaml-mode :ensure t)
+
 ;; better editing experience with parenthesis
 (use-package smartparens
   :ensure t
@@ -170,3 +203,23 @@
   (sp-pair "+" "+" :actions '(wrap))
   (sp-pair "<" ">" :actions '(wrap))
   (sp-pair "$" "$" :actions '(wrap)))
+
+(use-package yasnippet
+  :ensure t
+  :init (yas-global-mode 1)
+  )
+
+(use-package vterm
+  :ensure t)
+
+(use-package calfw
+  :ensure t
+  )
+
+(use-package calfw-org
+  :ensure t
+  )
+
+(use-package org-gcal
+  :ensure t
+  )

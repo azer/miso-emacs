@@ -20,9 +20,17 @@ Features:
 
 # Install
 
+Setup miso-emacs:
+
 ```bash
 $ git clone git@github.com:azer/miso-emacs.git ~/.miso-emacs
 $ ln -s .miso-emacs/.emacs .emacs
+```
+
+Install icon fonts;
+
+```
+M-x all-the-icons-install-fonts
 ```
 
 # Bindings
@@ -71,6 +79,16 @@ Project(ile):
 | <kbd>M-p b</kbd> | Switch to buffer |
 | <kbd>M-p s</kbd> | Search project |
 | <kbd>M-p r</kbd> | Search & replace project |
+
+Git:
+
+| Key | Command |
+| --- | ------- |
+| <kbd>M-g s</kbd> | Git status |
+| <kbd>M-g d</kbd> | Git diff for working tree |
+| <kbd>M-g b</kbd> | Git diff for the active buffer |
+| <kbd>M-g -</kbd> | Stash the worktree |
+| <kbd>M-g =</kbd> | Apply stash |
 
 Others:
 

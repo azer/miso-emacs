@@ -27,6 +27,9 @@
 			    (local-set-key (kbd "M-i <down>") 'magit-pull-from-upstream)
 			    ))
 
+ '(lsp-headerline-breadcrumb-enable-symbol-numbers nil)
+ '(lsp-headerline-breadcrumb-icons-enable nil)
+
 (defvar counsel-flycheck-history nil
   "history for `counsel-flycheck'")
 

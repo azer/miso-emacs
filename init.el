@@ -4,9 +4,9 @@
 (include "dependencies")
 
 (enable "emacs")
-(enable "ivy")
+(enable "completion")
 (enable "writing-mode")
-(enable "markdown-mode")
+(enable "markdown")
 (enable "rabbit-mode")
 (enable "undo-tree")
 (enable "trailing-whitespace")
@@ -15,14 +15,30 @@
 (enable "go")
 (enable "typescript")
 (enable "javascript")
-(enable "projectile")
+(enable "project")
 (enable "anzu")
 (enable "modeline")
 (enable "scratch")
 (enable "debugging")
 (enable "windows")
+(enable "git")
+(enable "mac")
+(enable "colors")
 
 ;; enable jungle theme
-(load-local-file "jungle-theme/jungle-theme")
+;;(load-local-file "jungle-theme/jungle-theme")
+;;(add-hook 'after-init-hook (lambda () (enable-theme 'jungle)))
+
+
 (set-cursor-color "#77B8E9")
 (setq cursor-type '(bar . 8))
+
+
+(set-face-attribute 'default nil
+                    :family "Menlo"
+                    :height 120
+                    :weight 'normal
+                    :width 'normal)
+
+(set-frame-parameter (selected-frame) 'alpha '(97 97))
+(add-to-list 'default-frame-alist '(alpha 97 97))
