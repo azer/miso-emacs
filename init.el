@@ -25,11 +25,6 @@
 (enable "mac")
 (enable "colors")
 
-;; enable jungle theme
-;;(load-local-file "jungle-theme/jungle-theme")
-;;(add-hook 'after-init-hook (lambda () (enable-theme 'jungle)))
-
-
 (set-cursor-color "#77B8E9")
 (setq cursor-type '(bar . 8))
 
