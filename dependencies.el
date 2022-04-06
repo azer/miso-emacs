@@ -244,3 +244,7 @@
 (use-package org-gcal
   :ensure t
   )
+
+(use-package dumb-jump
+  :ensure t
+  )

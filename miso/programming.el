@@ -21,6 +21,7 @@
 			    (local-set-key (kbd "M-i i") 'lsp-organize-imports)
 			    (local-set-key (kbd "M-i g") 'lsp-find-definition)
 			    (local-set-key (kbd "M-i t") 'lsp-goto-type-definition)
+			    (local-set-key (kbd "M-i d") 'dumb-jump-go)
 			    (local-set-key (kbd "M-i c") 'lsp-find-references)
 			    (local-set-key (kbd "M-i -") 'revert-buffer)
 			    (local-set-key (kbd "M-i <up>") 'magit-push-current-to-upstream)
