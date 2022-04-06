@@ -3,6 +3,10 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
+(counsel-mode 1)
+(ivy-mode 1)
+
+
 ;; remove ugly window divider
 (window-divider-mode -1)
 (setq window-divider-default-bottom-width 0)
