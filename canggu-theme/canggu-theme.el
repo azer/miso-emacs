@@ -103,7 +103,7 @@ Can be an integer to determine the exact padding."
    (strings        red)
    (variables      melon)
    (numbers        yellow)
-   (region        bg-alt)
+   (region         (doom-lighten bg 0.1))
    ;;(region         `(,(doom-lighten (car bg-alt) 0.05) ,@(doom-lighten (cdr base1) 0.35)))
    (error          red)
    (warning        yellow)
@@ -161,7 +161,7 @@ Can be an integer to determine the exact padding."
    ;;;; markdown-mode
    (markdown-markup-face :foreground base5)
    (markdown-header-face :inherit 'bold :foreground red)
-   ((markdown-code-face &override) :background (doom-lighten base3 0.05))
+   ((markdown-code-face &override) :background (doom-lighten bg 0.05))
    ;;;; rjsx-mode
    (rjsx-tag :foreground red)
    (rjsx-attr :foreground orange)
@@ -187,6 +187,14 @@ Can be an integer to determine the exact padding."
    ;; (lsp-headerline-breadcrumb-symbols-info-face :inherit lsp-headerline-breadcrumb-symbols-face)
    ;; (lsp-headerline-breadcrumb-symbols-warning-face :inherit lsp-headerline-breadcrumb-symbols-face)
    (header-line :background bg :foreground base7 :box nil :family "Monaco" :height 0.8 :line-width 4)
+
+   (markdown-header-delimiter-face :foreground base3)
+   (markdown-header-face-1 :height 1.0 :foreground light-cyan :weight 'bold)
+   (markdown-header-face-2 :foreground cyan)
+   (markdown-header-face-3 :foreground dark-cyan)
+   (markdown-header-face-4 :foreground yellow)
+   (markdown-header-face-5 :foreground melon)
+   (markdown-header-face-6 :foreground dark-melon)
 
    ;;;; tags
    (font-lock-function-name-face :foreground yellow :weight 'bold)
