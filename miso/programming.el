@@ -19,7 +19,7 @@
 			    (local-set-key (kbd "M-i j") 'counsel-semantic-or-imenu)
 			    (local-set-key (kbd "M-i w") 'write)
 			    (local-set-key (kbd "M-i i") 'lsp-organize-imports)
-			    (local-set-key (kbd "M-i g") 'lsp-goto-implementation)
+			    (local-set-key (kbd "M-i g") 'lsp-find-definition)
 			    (local-set-key (kbd "M-i t") 'lsp-goto-type-definition)
 			    (local-set-key (kbd "M-i c") 'lsp-find-references)
 			    (local-set-key (kbd "M-i -") 'revert-buffer)
@@ -28,7 +28,9 @@
 			    ))
 
  '(lsp-headerline-breadcrumb-enable-symbol-numbers nil)
- '(lsp-headerline-breadcrumb-icons-enable nil)
+'(lsp-headerline-breadcrumb-icons-enable nil)
+
+
 
 (defvar counsel-flycheck-history nil
   "history for `counsel-flycheck'")
@@ -56,3 +58,5 @@
                           (goto-char (flycheck-error-pos error))))
               :history 'counsel-flycheck-history
               :caller 'counsel-flycheck)))
+
+
