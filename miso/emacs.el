@@ -5,7 +5,8 @@
 
 (counsel-mode 1)
 (ivy-mode 1)
-
+(doom-modeline-mode 1)
+(add-hook 'after-init-hook #'doom-modeline-mode)
 
 ;; remove ugly window divider
 (window-divider-mode -1)
