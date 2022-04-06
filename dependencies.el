@@ -102,11 +102,8 @@
   (setq lsp-ui-doc-position 'at-point)
   (setq lsp-ui-sideline--code-actions t)
   :custom
-  (lsp-ui-doc-position 'top)
-  (lsp-ui-sideline-delay 1) ; don't show sideline immediately
-  (lsp-ui-doc-use-webkit t)
+  (lsp-ui-doc-position 'bottom)
   (lsp-ui-doc-delay 0)
-  (lsp-ui-doc-enable nil)
   )
 
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
