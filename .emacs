@@ -41,8 +41,9 @@
  '(git-gutter:modified-sign "~")
  '(js2-strict-inconsistent-return-warning nil)
  '(js2-strict-missing-semi-warning nil)
+ '(lsp-enable-snippet t)
  '(magit-auto-revert-mode nil)
- '(package-selected-packages '(doom-themes magit))
+ '(package-selected-packages '(ivy-posframe rust-mode cargo-mode doom-themes magit))
  '(writeroom-mode-line t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -54,4 +55,5 @@
  '(git-gutter:modified ((t (:foreground "#f1fa8c" :background "#f1fa8c"))))
  '(lsp-ui-doc-header ((t (:background "red" :foreground "black"))))
  '(lsp-ui-doc-highlight-hover ((t (:background "light green"))))
- '(lsp-ui-peek-header ((t (:background "yellow" :foreground "pink" :weight bold)))))
+ '(lsp-ui-peek-header ((t (:background "yellow" :foreground "pink" :weight bold))))
+ '(markdown-header-face-1 ((t (:foreground "#ACF2E4" :weight bold :height 1.0)))))
