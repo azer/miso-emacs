@@ -1,5 +1,5 @@
-(add-hook 'js2-mode-hook 'prettier-js-mode)
-(add-hook 'rjsx-mode 'prettier-js-mode)
+(add-hook 'js2-mode-hook 'prettier-mode)
+(add-hook 'rjsx-mode 'prettier-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
 

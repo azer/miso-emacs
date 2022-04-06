@@ -1,5 +1,5 @@
-(add-hook 'web-mode-hook 'prettier-js-mode)
-(add-hook 'typescript-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-mode)
+(add-hook 'typescript-mode-hook 'prettier-mode)
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 
 (add-hook 'web-mode-hook
@@ -8,9 +8,8 @@
             (setq web-mode-code-indent-offset 2)
             (when (string-equal "tsx" (file-name-extension buffer-file-name)) (typescript-mode))))
 
-(setq prettier-js-args '("--print-width" "80"
-			 "--single-quote" "true"
-			 "--no-semi"))
+(add-hook 'before-save-hook 'lsp-organize-imports)
+
 
 ;; (defun setup-tide-mode ()
 ;;   (interactive)
@@ -23,7 +22,7 @@
 ;; ;; aligns annotation to the right hand side
 ;; (setq company-tooltip-align-annotations t)
 ;; ;; formats the buffer before saving
-;; (add-hook 'before-save-hook 'tide-format-before-save)
+;;
 ;; (add-hook 'typescript-mode-hook #'setup-tide-mode)
 ;; (require 'web-mode)
 ;; (flycheck-add-mode 'typescript-tslint 'web-mode)

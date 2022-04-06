@@ -26,6 +26,8 @@
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1)
   (setq lsp-completion-provider :capf)
+  :custom
+    (lsp-enable-snippet t)
   )
 
 (use-package company-quickhelp
@@ -59,6 +61,19 @@
 ;; Go
 (use-package go-mode :ensure t)
 
+
+;; rust
+(use-package cargo-mode :ensure t)
+(use-package rust-mode :ensure t
+  :config
+  (add-hook 'rust-mode-hook
+	    (lambda () (setq indent-tabs-mode nil)))
+  (setq rust-format-on-save t)
+  (add-hook 'rust-mode-hook
+            (lambda () (prettify-symbols-mode)))
+  (add-hook 'rust-mode-hook #'lsp)
+  )
+
 ;; TypeScript
 (use-package typescript-mode
   :ensure t
@@ -85,6 +100,13 @@
   :config
   (setq lsp-headerline-breadcrumb-enable t)
   (setq lsp-ui-doc-position 'at-point)
+  (setq lsp-ui-sideline--code-actions t)
+  :custom
+  (lsp-ui-doc-position 'top)
+  (lsp-ui-sideline-delay 1) ; don't show sideline immediately
+  (lsp-ui-doc-use-webkit t)
+  (lsp-ui-doc-delay 0)
+  (lsp-ui-doc-enable nil)
   )
 
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
@@ -152,6 +174,8 @@
   ("M-g =" . 'magit-stash-apply)
   ("M-g c" . 'magit-commit-worktree)
   ("M-g s" . 'magit-stage-modified)
+  ("M-g /" . 'counsel-git-checkout)
+  ("M-g l" . 'magit-blame-echo)
   )
 
 ;; display better diffs
@@ -188,7 +212,7 @@
   :ensure t
 )
 
-(use-package prettier-js :ensure t)
+(use-package prettier :ensure t)
 
 (use-package yaml-mode :ensure t)
 
