@@ -41,7 +41,6 @@
   (delq 'writeroom-set-fullscreen writeroom-global-effects))`
 
 
-(message "writing mode")
 (setq google-translate-default-source-language "auto")  ; Auto detect language.
 (setq google-translate-default-target-language "en")
 
@@ -79,7 +78,5 @@
 
 (defun writeroom-fit-window ()
   (interactive)
-  (message (number-to-string (window-total-width)))
-  (message (number-to-string (writing-block-size)))
   (setq visual-fill-column-width (writing-block-size))
   )
