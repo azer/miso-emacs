@@ -8,7 +8,6 @@
 (enable "writing-mode")
 (enable "markdown")
 (enable "rabbit-mode")
-(enable "undo-tree")
 (enable "trailing-whitespace")
 (enable "rename-current-buffer")
 (enable "programming")

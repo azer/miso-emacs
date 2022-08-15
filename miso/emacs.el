@@ -31,3 +31,12 @@
 
 ;; change cursor color
 (set-cursor-color "#77B8E9")
+
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+  
+(windmove-default-keybindings 'meta)
+
+(global-unset-key (kbd "C-z"))
+(global-set-key (kbd "C-z")   'undo-fu-only-undo)
+(global-set-key (kbd "C-S-z") 'undo-fu-only-redo)

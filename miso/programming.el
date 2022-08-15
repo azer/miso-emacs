@@ -23,6 +23,7 @@
 			    (local-set-key (kbd "M-i t") 'lsp-goto-type-definition)
 			    (local-set-key (kbd "M-i d") 'dumb-jump-go)
 			    (local-set-key (kbd "M-i c") 'lsp-find-references)
+			    (local-set-key (kbd "M-i l") 'goto-last-change)
 			    (local-set-key (kbd "M-i -") 'revert-buffer)
 			    (local-set-key (kbd "M-i <up>") 'magit-push-current-to-upstream)
 			    (local-set-key (kbd "M-i <down>") 'magit-pull-from-upstream)
@@ -31,7 +32,8 @@
  '(lsp-headerline-breadcrumb-enable-symbol-numbers nil)
 '(lsp-headerline-breadcrumb-icons-enable nil)
 
-
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-sources 'ac-source-yasnippet))
 
 (defvar counsel-flycheck-history nil
   "history for `counsel-flycheck'")

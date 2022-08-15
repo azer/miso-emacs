@@ -42,8 +42,11 @@
  '(js2-strict-inconsistent-return-warning nil)
  '(js2-strict-missing-semi-warning nil)
  '(lsp-enable-snippet t)
+ '(lsp-ui-doc-delay 0 t)
+ '(lsp-ui-doc-position 'bottom t)
  '(magit-auto-revert-mode nil)
- '(package-selected-packages '(ivy-posframe rust-mode cargo-mode doom-themes magit))
+ '(package-selected-packages
+   '(company-lsp swift-mode use-package dumb-jump ivy-posframe rust-mode cargo-mode doom-themes magit))
  '(writeroom-mode-line t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

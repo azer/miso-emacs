@@ -46,7 +46,8 @@
 (use-package counsel-projectile :ensure t)
 (use-package writeroom-mode :ensure t)
 (use-package linum-relative :ensure t)
-(use-package undo-tree :ensure t)
+(use-package undo-fu :ensure t)
+(use-package goto-last-change :ensure t)
 (use-package flyspell-correct
   :ensure t
   :bind (:map flyspell-mode-map ("M-i c" . flyspell-correct-wrapper)))
