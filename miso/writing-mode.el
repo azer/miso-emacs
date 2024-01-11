@@ -13,7 +13,7 @@
   (flyspell-mode)
   (setq truncate-lines nil)
   (setq-default line-spacing 5)
-  (setq global-hl-line-mode nil)
+  (setq hl-line-mode nil)
   (setq doom-modeline-enable-word-count t)
 
   (local-set-key (kbd "M-=") 'writeroom-fit-window)

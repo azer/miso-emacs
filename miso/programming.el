@@ -12,6 +12,9 @@
 
 (add-hook 'prog-mode-hook (lambda ()
 			    (interactive)
+			    (hl-line-mode)
+			    (set-face-attribute 'linum nil :family "Menlo" :height 140 :slant 'normal)
+			    (set-face-attribute 'linum-relative-current-face nil :family "Menlo" :height 140 :slant 'normal)
 			    (local-set-key (kbd "M-\\") 'company-yasnippet)
 			    (local-set-key (kbd "M-i e") 'counsel-flycheck)
 			    (local-set-key (kbd "M-i f") 'lsp-execute-code-action)
@@ -29,7 +32,7 @@
 			    (local-set-key (kbd "M-i <down>") 'magit-pull-from-upstream)
 			    ))
 
- '(lsp-headerline-breadcrumb-enable-symbol-numbers nil)
+'(lsp-headerline-breadcrumb-enable-symbol-numbers nil)
 '(lsp-headerline-breadcrumb-icons-enable nil)
 
 (eval-after-load "auto-complete"
@@ -63,3 +66,16 @@
               :caller 'counsel-flycheck)))
 
 
+;; quit after hitting enter in find references xref window
+(defun my/do-then-quit (&rest args)
+  (let ((win (selected-window)))
+    (apply (car args) (rest args))
+    (quit-window nil win)))
+
+(advice-add #'xref-goto-xref :around #'my/do-then-quit)
+
+(eval-after-load "linum"
+  '(progn
+  (set-face-attribute 'linum nil :family "Menlo" :height 140 :slant 'normal)
+  (set-face-attribute 'linum-relative-current-face nil :family "Menlo" :height 140 :slant 'normal)
+  ))

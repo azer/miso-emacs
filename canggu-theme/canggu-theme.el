@@ -196,6 +196,12 @@ Can be an integer to determine the exact padding."
    (markdown-header-face-5 :foreground melon)
    (markdown-header-face-6 :foreground dark-melon)
 
+   ;; treemacs
+   (hl-line-face :background (doom-lighten bg 0.035))
+   (hl-line :background (doom-lighten bg 0.05))
+   ;;(set-face-background hl-line-face (doom-lighten bg 0.035))
+   (treemacs-hl-line-face :background (doom-lighten bg 0.035))
+
    ;;;; tags
    (font-lock-function-name-face :foreground yellow :weight 'bold)
    (lsp-ui-doc-background          :background base2)

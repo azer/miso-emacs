@@ -30,9 +30,11 @@
 
 (set-face-attribute 'default nil
                     :family "Menlo"
-                    :height 120
+                    :height 140
                     :weight 'normal
                     :width 'normal)
+
+(setq doom-themes-treemacs-enable-variable-pitch nil)
 
 (set-frame-parameter (selected-frame) 'alpha '(97 97))
 (add-to-list 'default-frame-alist '(alpha 97 97))

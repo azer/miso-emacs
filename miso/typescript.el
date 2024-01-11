@@ -8,7 +8,7 @@
             (setq web-mode-code-indent-offset 2)
             (when (string-equal "tsx" (file-name-extension buffer-file-name)) (typescript-mode))))
 
-(add-hook 'before-save-hook 'lsp-organize-imports)
+;;(add-hook 'before-save-hook 'lsp-organize-imports)
 
 
 ;; (defun setup-tide-mode ()

@@ -20,6 +20,59 @@
 
 (use-package markdown-mode :ensure t)
 
+(use-package solaire-mode :ensure t)
+
+(use-package golden-ratio :ensure t
+  :hook (after-init . golden-ratio-mode)
+  )
+
+(use-package treemacs :ensure t
+  :bind ("<f5>" . treemacs)
+  :custom
+  (treemacs-is-never-other-window)
+  :hook
+  (treemacs-mode . treemacs-project-follow-mode)
+  )
+
+;; The Emacs default split doesn't seem too intuitive for most users.
+(use-package emacs
+  :ensure nil
+  :preface
+  (defun ian/split-and-follow-horizontally ()
+    "Split window below."
+    (interactive)
+    (split-window-below)
+    (other-window 1))
+  (defun ian/split-and-follow-vertically ()
+    "Split window right."
+    (interactive)
+    (split-window-right)
+    (other-window 1))
+  :config
+  (global-set-key (kbd "C-x 2") #'ian/split-and-follow-horizontally)
+  (global-set-key (kbd "C-x 3") #'ian/split-and-follow-vertically))
+
+(use-package diminish
+  :ensure t
+  :demand t)
+
+(use-package ediff
+  :ensure nil
+  :config
+  (setq ediff-window-setup-function #'ediff-setup-windows-plain)
+  (setq ediff-split-window-function #'split-window-horizontally))
+
+(use-package frame
+  :preface
+  :ensure nil
+  :config
+  (setq initial-frame-alist '((fullscreen . maximized))))
+
+;; Replace the active region just by typing text, just like modern editors.
+(use-package delsel
+  :ensure nil
+  :config (delete-selection-mode +1))
+
 ;; auto-completion with company
 (use-package company :ensure t
   :config
@@ -62,6 +115,10 @@
 ;; Go
 (use-package go-mode :ensure t)
 
+;; Elixir
+(use-package elixir-mode :ensure t)
+
+(use-package dockerfile-mode :ensure t)
 
 ;; rust
 (use-package cargo-mode :ensure t)
@@ -86,6 +143,7 @@
 (use-package lsp-mode :ensure t
   :commands (lsp lsp-deferred)
   :hook (go-mode . lsp-deferred)
+  :hook (elixir-mode . lsp-deferred)
   :hook (typescript-mode . lsp-deferred)
   :hook (js-mode . lsp-deferred)
   )
@@ -108,7 +166,11 @@
   )
 
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+(use-package lsp-treemacs
+  :commands lsp-treemacs-errors-list
+  :custom
+  (lsp-treemacs-sync-mode 1)
+  )
 
 ;; m-x enhancements
 (use-package smex :ensure t)
@@ -131,13 +193,42 @@
 
 (use-package flycheck :ensure t)
 (use-package all-the-icons :ensure t)
-(use-package doom-modeline :ensure t
-  :init (doom-modeline-mode 1))
 
-(use-package doom-themes :ensure t
-   :init
-   (doom-themes-visual-bell-config)
-  )
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :config (column-number-mode 1)
+  :custom
+  (doom-modeline-height 30)
+  (doom-modeline-window-width-limit nil)
+  (doom-modeline-buffer-file-name-style 'relative-from-project)
+  (doom-modeline-minor-modes nil)
+  (doom-modeline-enable-word-count t)
+  (doom-modeline-buffer-encoding nil)
+  (doom-modeline-buffer-modification-icon t)
+  (doom-modeline-env-python-executable "python")
+  ;;needs display-time-mode to be one
+  (doom-modeline-time t)
+  (doom-modeline-vcs-max-length 50))
+
+
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  ;;(load-theme 'doom-one t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (doom-themes-neotree-config)
+  ;; or for treemacs users
+  ;;(setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+  (doom-themes-treemacs-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 
 ;; use ivy to correct words
 (use-package flyspell-correct
@@ -157,9 +248,7 @@
   )
 
 ;; git
-(use-package gitattributes-mode :ensure t :defer t)
-(use-package gitconfig-mode :ensure t :defer t)
-(use-package gitignore-mode :ensure t :defer t)
+(use-package git-modes :ensure t :defer t)
 (use-package magit
   :ensure t
   :custom
@@ -231,9 +320,6 @@
   :init (yas-global-mode 1)
   )
 
-(use-package vterm
-  :ensure t)
-
 (use-package calfw
   :ensure t
   )
@@ -242,10 +328,28 @@
   :ensure t
   )
 
-(use-package org-gcal
-  :ensure t
-  )
-
 (use-package dumb-jump
   :ensure t
   )
+
+(use-package ellama
+  :ensure t
+  :init
+  (setopt ellama-language "English")
+  (require 'llm-ollama)
+  (setopt ellama-provider
+	  (make-llm-ollama
+	   :chat-model "mistral:latest" :embedding-model "mistral:latest"))
+  ;; Predefined llm providers for interactive switching.
+  ;; You shouldn't add ollama providers here - it can be selected interactively
+  ;; without it. It is just example.
+  (setopt ellama-providers
+	  '(("mistral" . (make-llm-ollama
+			  :chat-model "mistral:latest"
+			  :embedding-model "mistral:latest"))
+	    ("zephyr" . (make-llm-ollama
+			 :chat-model "zephyr:7b-beta-q6_K"
+			 :embedding-model "zephyr:7b-beta-q6_K"))
+	    ("mixtral" . (make-llm-ollama
+			  :chat-model "mixtral:8x7b-instruct-v0.1-q3_K_M-4k"
+			  :embedding-model "mixtral:8x7b-instruct-v0.1-q3_K_M-4k")))))

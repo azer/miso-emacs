@@ -34,7 +34,7 @@
 
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
-  
+
 (windmove-default-keybindings 'meta)
 
 (global-unset-key (kbd "C-z"))
