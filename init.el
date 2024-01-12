@@ -29,8 +29,8 @@
 
 
 (set-face-attribute 'default nil
-                    :family "Menlo"
-                    :height 140
+                    :family "Inconsolata"
+                    :height 160
                     :weight 'normal
                     :width 'normal)
 

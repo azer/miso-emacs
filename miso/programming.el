@@ -1,20 +1,20 @@
 (add-hook 'prog-mode-hook 'linum-relative-mode)
 (add-hook 'prog-mode-hook 'rabbit-mode)
 (add-hook 'prog-mode-hook 'company-mode)
-(add-hook 'prog-mode-hook 'git-gutter-mode)
+;;(add-hook 'prog-mode-hook 'git-gutter-mode)
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
 (add-hook 'conf-mode-hook 'linum-relative-mode)
 (add-hook 'conf-mode-hook 'rabbit-mode)
 (add-hook 'conf-mode-hook 'company-mode)
-(add-hook 'conf-mode-hook 'git-gutter-mode)
+;;(add-hook 'conf-mode-hook 'git-gutter-mode)
 (add-hook 'conf-mode-hook 'show-paren-mode)
 
 (add-hook 'prog-mode-hook (lambda ()
 			    (interactive)
 			    (hl-line-mode)
-			    (set-face-attribute 'linum nil :family "Menlo" :height 140 :slant 'normal)
-			    (set-face-attribute 'linum-relative-current-face nil :family "Menlo" :height 140 :slant 'normal)
+			    (set-face-attribute 'linum nil :family "Inconsolata" :height 140 :slant 'normal)
+			    (set-face-attribute 'linum-relative-current-face nil :family "Inconsolata" :height 140 :slant 'normal)
 			    (local-set-key (kbd "M-\\") 'company-yasnippet)
 			    (local-set-key (kbd "M-i e") 'counsel-flycheck)
 			    (local-set-key (kbd "M-i f") 'lsp-execute-code-action)
@@ -76,6 +76,6 @@
 
 (eval-after-load "linum"
   '(progn
-  (set-face-attribute 'linum nil :family "Menlo" :height 140 :slant 'normal)
-  (set-face-attribute 'linum-relative-current-face nil :family "Menlo" :height 140 :slant 'normal)
+  (set-face-attribute 'linum nil :family "Inconsolata" :height 160 :slant 'normal)
+  (set-face-attribute 'linum-relative-current-face nil :family "Inconsolata" :height 160 :slant 'normal)
   ))
