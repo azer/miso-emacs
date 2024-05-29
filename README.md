@@ -5,7 +5,7 @@ Opinionated Emacs distro for minimalists.
 | Writing-mode | Programming-mode |
 | --- | --- |
 | Centered writing layout, spell correction, dictionary and pronounciation shortcuts in markdown modes | Dark color scheme, LSP mode enabled for programing |
-| <img width="1185" alt="Screenshot 2024-05-29 at 10 04 24" src="https://github.com/azer/miso-emacs/assets/13072/d77b052c-ac5c-4bc0-ac31-6ffbef940ba5"> | <img width="1185" alt="Screenshot 2024-05-29 at 10 17 20" src="https://github.com/azer/miso-emacs/assets/13072/c941e161-61c1-42b2-a4f2-9fd426e45e6c"> |
+| <img width="1230" alt="Screenshot 2024-05-29 at 10 32 45" src="https://github.com/azer/miso-emacs/assets/13072/2a8ffb4f-bd3c-40aa-be82-2a6e62988fbe"> | <img width="1230" alt="Screenshot 2024-05-29 at 10 32 11" src="https://github.com/azer/miso-emacs/assets/13072/f438d8bc-1d49-48c6-b815-52518546f4b8"> |
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
