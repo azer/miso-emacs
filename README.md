@@ -29,6 +29,7 @@ Install icon fonts;
 
 ```
 M-x all-the-icons-install-fonts
+M-x nerd-icons-install-fonts
 ```
 
 Install ispell:
