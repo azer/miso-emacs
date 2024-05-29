@@ -5,7 +5,8 @@ Opinionated Emacs distro for minimalists.
 | Writing-mode | Programming-mode |
 | --- | --- |
 | Centered writing layout, spell correction, dictionary and pronounciation shortcuts in markdown modes | Dark color scheme, LSP mode enabled for programing |
-| ![ezgif-6-01ab51106bba](https://user-images.githubusercontent.com/13072/132133441-7c7cfcfe-f1a4-44ae-97f1-4266e5056e16.gif) | <img width="1082" alt="Screenshot 2021-09-05 at 17 52 36" src="https://user-images.githubusercontent.com/13072/132133149-206a8907-8646-432d-9f49-cbc4467edbd9.png"> |
+| <img width="1185" alt="Screenshot 2024-05-29 at 10 04 24" src="https://github.com/azer/miso-emacs/assets/13072/d77b052c-ac5c-4bc0-ac31-6ffbef940ba5"> | <img width="1185" alt="Screenshot 2024-05-29 at 10 02 09" src="https://github.com/azer/miso-emacs/assets/13072/38e83431-5d02-42f8-a936-e026e08f08d2">
+ |
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
@@ -66,6 +67,8 @@ Programming:
 | <kbd>M-i c</kbd> | Find references |
 | <kbd>M-i -</kbd> | Revert buffer |
 | <kbd>M-\</kbd> | Yasnippet |
+| <kbd>M-RET</kbd> | Trigger + Complete Copilot |
+| <kbd>M-y</kbd> | Trigger + Complete Copilot |
 
 
 Writing:
