@@ -40,8 +40,9 @@
  '(js2-strict-missing-semi-warning nil)
  '(lsp-elixir-suggest-specs nil)
  '(package-selected-packages
-   '(ellama chatgpt-shell diminish helm-dash marginalia amx vertico golden-ratio solaire-mode prettier-js svelte-mode dockerfile-mode elixir-mode company-lsp swift-mode use-package dumb-jump ivy-posframe rust-mode cargo-mode doom-themes magit))
+   '(all-the-icons-ibuffer devdocs ellama chatgpt-shell diminish helm-dash marginalia amx vertico golden-ratio solaire-mode prettier-js svelte-mode dockerfile-mode elixir-mode company-lsp swift-mode use-package dumb-jump ivy-posframe rust-mode cargo-mode doom-themes magit))
  '(warning-minimum-level :error)
+ '(warning-suppress-log-types '((use-package)))
  '(writeroom-mode-line t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

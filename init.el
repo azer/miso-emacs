@@ -23,16 +23,10 @@
 (enable "git")
 (enable "mac")
 (enable "colors")
+(enable "copilot")
 
 (set-cursor-color "#77B8E9")
 (setq cursor-type '(bar . 8))
-
-
-(set-face-attribute 'default nil
-                    :family "Inconsolata"
-                    :height 160
-                    :weight 'normal
-                    :width 'normal)
 
 (setq doom-themes-treemacs-enable-variable-pitch nil)
 

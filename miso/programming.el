@@ -13,8 +13,9 @@
 (add-hook 'prog-mode-hook (lambda ()
 			    (interactive)
 			    (hl-line-mode)
-			    (set-face-attribute 'linum nil :family "Inconsolata" :height 140 :slant 'normal)
-			    (set-face-attribute 'linum-relative-current-face nil :family "Inconsolata" :height 140 :slant 'normal)
+			    (copilot-mode)
+			    (set-face-attribute 'linum nil :family "Inconsolata" :height 170 :slant 'normal)
+			    (set-face-attribute 'linum-relative-current-face nil :family "Inconsolata" :height 170 :slant 'normal)
 			    (local-set-key (kbd "M-\\") 'company-yasnippet)
 			    (local-set-key (kbd "M-i e") 'counsel-flycheck)
 			    (local-set-key (kbd "M-i f") 'lsp-execute-code-action)
@@ -28,6 +29,7 @@
 			    (local-set-key (kbd "M-i c") 'lsp-find-references)
 			    (local-set-key (kbd "M-i l") 'goto-last-change)
 			    (local-set-key (kbd "M-i -") 'revert-buffer)
+			    (local-set-key (kbd "M-i .") 'devdocs-lookup)
 			    (local-set-key (kbd "M-i <up>") 'magit-push-current-to-upstream)
 			    (local-set-key (kbd "M-i <down>") 'magit-pull-from-upstream)
 			    ))
@@ -76,6 +78,7 @@
 
 (eval-after-load "linum"
   '(progn
-  (set-face-attribute 'linum nil :family "Inconsolata" :height 160 :slant 'normal)
-  (set-face-attribute 'linum-relative-current-face nil :family "Inconsolata" :height 160 :slant 'normal)
+     (setq linum-format " %d ")
+     (set-face-attribute 'linum nil :family "Inconsolata" :height 160 :slant 'normal)
+     (set-face-attribute 'linum-relative-current-face nil :family "Inconsolata" :height 160 :slant 'normal)
   ))
