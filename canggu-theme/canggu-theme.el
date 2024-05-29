@@ -46,14 +46,14 @@ Can be an integer to determine the exact padding."
   "A dark theme"
 
   ;; name        default   256           16
-  ((bg         '("#050505" "black"       "black"  ))
-   (fg         '("#f8f8f2" "#f8f8f2"     "brightwhite"  ))
+  ((bg         '("#1b1d22" "black"       "black"  ))
+   (fg         '("#C8CCD4" "#f8f8f2"     "brightwhite"  ))
 
    ;; These are off-color variants of bg/fg, used primarily for `solaire-mode',
    ;; but can also be useful as a basis for subtle highlights (e.g. for hl-line
    ;; or region), especially when paired with the `doom-darken', `doom-lighten',
    ;; and `doom-blend' helper functions.
-   (bg-alt     '("#010101" "black"       "black"        ))
+   (bg-alt     '("#252931" "black"       "black"        ))
    (fg-alt     '("#eeeeee" "#eeeeee"     "white"        ))
 
    ;; These should represent a spectrum from bg to fg, where base0 is a starker
