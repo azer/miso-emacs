@@ -5,7 +5,7 @@
       (setq buffer-face-mode-face '(:family "Monaco" :height 170))
       )
   (buffer-face-mode)
-  (linum-mode 0)
+  ;;(linum-mode 0)
   (writeroom-mode 1)
   (blink-cursor-mode)
   (visual-line-mode 1)

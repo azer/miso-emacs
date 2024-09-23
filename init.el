@@ -1,10 +1,13 @@
 (message "Setting up Misomacs")
 
+(setenv "LSP_USE_PLISTS" "true")
+
 ;; make sure dependencies are installed
+(enable "straight")
 (include "dependencies")
 
 (enable "emacs")
-(enable "completion")
+(enable "consult")
 (enable "writing-mode")
 (enable "markdown")
 (enable "rabbit-mode")
@@ -23,7 +26,9 @@
 (enable "git")
 (enable "mac")
 (enable "colors")
+(enable "tabs")
 (enable "copilot")
+(enable "lsp")
 
 (set-cursor-color "#77B8E9")
 (setq cursor-type '(bar . 8))

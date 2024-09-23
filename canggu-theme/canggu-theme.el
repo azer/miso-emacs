@@ -2,10 +2,10 @@
 ;;
 ;; Author: Azer Koculu <https://github.com/azer>
 ;; Created: September 5, 2021
-;; Version: 1.0.0
+;; Version: 1.0.1
 ;; Keywords: custom themes, faces
 ;; Homepage: https://github.com/azer/canggu-theme
-;; Package-Requires: ((emacs "25.1") (cl-lib "0.5") (doom-themes "2.2.1"))
+;; Package-Requires: ((emacs "29.1") (cl-lib "0.5") (doom-themes "2.2.1"))
 ;;
 ;; commentary
 ;;
@@ -37,7 +37,6 @@
 Can be an integer to determine the exact padding."
   :group 'canggu-theme
   :type '(choice integer boolean))
-
 
 ;;
 ;;; Theme definition
@@ -131,8 +130,8 @@ Can be an integer to determine the exact padding."
 
 
   ;;;; Base theme face overrides
-  (((line-number &override) :foreground base4)
-   ((line-number-current-line &override) :foreground fg)
+  (((line-number &override) :foreground base4 :family "Inconsolata" :height 160 :slant 'normal)
+   ((line-number-current-line &override) :foreground fg :family "Inconsolata" :height 160 :slant 'normal :weight 'bold)
    ((font-lock-comment-face &override)
     :background (if canggu-brighter-comments (doom-lighten bg 0.05)))
    (mode-line
@@ -206,9 +205,41 @@ Can be an integer to determine the exact padding."
    (font-lock-function-name-face :foreground yellow :weight 'bold)
    (lsp-ui-doc-background          :background base2)
    (button :foreground red)
+
+   ;; Window divider
+   (window-divider :foreground "#252931")
+
+   ;; Custom faces
+   (git-gutter:added    :foreground "#50fa7b" :background "#50fa7b")
+   (git-gutter:deleted  :foreground "#ff79c6" :background "#ff79c6")
+   (git-gutter:modified :foreground "#f1fa8c" :background "#f1fa8c")
+   (lsp-ui-doc-header   :background "red" :foreground "black")
+   (lsp-ui-doc-highlight-hover :background "light green")
+   (mode-line           :family "Inconsolata" :height 150 :weight 'normal)
+   (mode-line-active    :family "Inconsolata" :height 150 :weight 'normal)
+   (mode-line-inactive  :family "Inconsolata" :height 150 :weight 'normal)
    )
 
-  ;;;; Base theme variable overrides-
-  ())
+  ;;;; Base theme variable overrides
+  ()
+)
 
+;; Enable relative line numbers for programming modes
+(add-hook 'prog-mode-hook (lambda ()
+                            (setq display-line-numbers 'relative)
+                            (setq display-line-numbers-type 'relative)
+                            (setq display-line-numbers-width 3)
+                            (setq display-line-numbers-grow-only t)
+                            (setq display-line-numbers-width-start t)
+                            (display-line-numbers-mode 1)))
+
+;; Disable line numbers for some modes
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                shell-mode-hook
+                treemacs-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+(provide 'canggu-theme)
 ;;; canggu-theme.el ends here

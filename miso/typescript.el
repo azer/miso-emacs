@@ -1,42 +1,49 @@
-(use-package typescript-mode
-  :after tree-sitter
-  :config
-  ;; we choose this instead of tsx-mode so that eglot can automatically figure out language for server
-  ;; see https://github.com/joaotavora/eglot/issues/624 and https://github.com/joaotavora/eglot#handling-quirky-servers
-  (define-derived-mode typescriptreact-mode typescript-mode
-    "TypeScript TSX")
+;; Auto-mode settings for TypeScript and TSX files
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
 
-  ;; use our derived mode for tsx files
-  (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescriptreact-mode))
-  ;; by default, typescript-mode is mapped to the treesitter typescript parser
-  ;; use our derived mode to map both .tsx AND .ts -> typescriptreact-mode -> treesitter tsx
-  (add-to-list 'tree-sitter-major-mode-language-alist '(typescriptreact-mode . tsx)))
+;; Flycheck configuration for TypeScript
+(with-eval-after-load 'flycheck
+  (flycheck-add-mode 'typescript-tslint 'typescript-ts-mode)
+  (flycheck-add-mode 'typescript-tslint 'tsx-ts-mode))
 
-;;(add-hook 'web-mode-hook 'prettier-mode)
-;;(add-hook 'typescript-mode-hook 'prettier-mode)
-;;(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+;; LSP configuration for TypeScript
+(with-eval-after-load 'lsp-mode
+  (add-hook 'typescript-ts-mode-hook #'lsp-deferred)
+  (add-hook 'tsx-ts-mode-hook #'lsp-deferred)
+  (setq lsp-typescript-suggest-complete-function-calls t)
+  (setq lsp-typescript-surveys-enabled nil))
 
-;;(add-hook 'web-mode-hook
-	  ;;(lambda ()
-	    ;;(setq web-mode-markup-indent-offset 2)
-            ;;(setq web-mode-code-indent-offset 2)
-            ;;(when (string-equal "tsx" (file-name-extension buffer-file-name)) (typescript-mode))))
+;; YASnippet configuration for TypeScript
+(with-eval-after-load 'yasnippet
+  (add-hook 'typescript-ts-mode-hook #'yas-minor-mode)
+  (add-hook 'tsx-ts-mode-hook #'yas-minor-mode)
+  (add-hook 'typescript-ts-mode-hook
+            (lambda () (yas-activate-extra-mode 'typescript-mode)))
+  (add-hook 'tsx-ts-mode-hook
+            (lambda () (yas-activate-extra-mode 'typescript-tsx-mode))))
 
-;;(add-hook 'before-save-hook 'lsp-organize-imports)
+;; Prettier configuration (if prettier package is available)
+(with-eval-after-load 'prettier
+  (add-hook 'typescript-ts-mode-hook #'prettier-mode)
+  (add-hook 'tsx-ts-mode-hook #'prettier-mode))
 
+;; Additional TypeScript-specific settings
+(defun miso/typescript-mode-hook ()
+  "Custom hook for TypeScript modes."
+  (setq-local typescript-indent-level 2)
+  (setq-local indent-tabs-mode nil)
+  (setq-local js-indent-level 2))
 
-;; (defun setup-tide-mode ()
-;;   (interactive)
-;;   (tide-setup)
-;;   (flycheck-mode +1)
-;;   (setq flycheck-check-syntax-automatically '(save mode-enabled))
-;;   (eldoc-mode +1)
-;;   (tide-hl-identifier-mode +1)
-;;   (company-mode +1))
-;; ;; aligns annotation to the right hand side
-;; (setq company-tooltip-align-annotations t)
-;; ;; formats the buffer before saving
-;;
-;; (add-hook 'typescript-mode-hook #'setup-tide-mode)
-;; (require 'web-mode)
-;; (flycheck-add-mode 'typescript-tslint 'web-mode)
+(add-hook 'typescript-ts-mode-hook #'miso/typescript-mode-hook)
+(add-hook 'tsx-ts-mode-hook #'miso/typescript-mode-hook)
+
+;; Optional: Organize imports on save (if lsp-mode is available)
+;; (add-hook 'before-save-hook #'lsp-organize-imports)
+
+;; Tree-sitter configuration
+(with-eval-after-load 'treesit
+  (add-to-list 'treesit-language-source-alist
+               '(typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")))
+  (add-to-list 'treesit-language-source-alist
+               '(tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))))

@@ -11,3 +11,8 @@
 (setq doom-modeline-percent-position nil)
 
 (setq doom-modeline-major-mode nil)
+
+(custom-set-faces
+  '(mode-line ((t (:family "Inconsolata" :height 150 :weight normal))))
+  '(mode-line-active ((t (:family "Inconsolata" :height 150 :weight normal)))) ; For 29+
+  '(mode-line-inactive ((t (:family "Inconsolata" :height 150 :weight normal)))))

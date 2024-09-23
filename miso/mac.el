@@ -7,7 +7,7 @@
   (global-set-key (kbd "C-l") 'set-mark-command)
   (global-set-key (kbd "s-z") 'undo)
   (global-set-key (kbd "s-Z") 'redo)
-  (global-set-key (kbd "s-p") 'counsel-projectile-find-file)
+  ;;(global-set-key (kbd "s-p") 'counsel-projectile-find-file)
   (setq ns-alternate-modifier 'meta)
   (setq ns-right-alternate-modifier 'none)
   )

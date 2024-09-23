@@ -1,4 +1,4 @@
-(defun rename-this-buffer-and-file ()
+(defun miso/rename-this-buffer-and-file ()
   "Renames current buffer and file it is visiting."
   (interactive)
   (let ((name (buffer-name))
