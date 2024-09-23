@@ -119,3 +119,17 @@ Others:
 # Customize
 
 Create a `private` folder under `.miso-emacs` and have an `init.el` file to execute custom Elisp.
+
+# Troubleshooting
+
+* **LSP-mode fails to initialize with JSON parsing errors:**
+
+Clean up all packages and start Emacs with env variable below:
+
+```bash
+export LSP_USE_PLISTS=true
+```
+
+Source: https://emacs-lsp.github.io/lsp-mode/page/performance/#use-plists-for-deserialization
+
+
