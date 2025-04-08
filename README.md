@@ -25,6 +25,10 @@ $ git clone git@github.com:azer/miso-emacs.git ~/.miso-emacs
 $ ln -s .miso-emacs/.emacs .emacs
 ```
 
+**Dependencies:**
+
+For faster LSP-mode, make sure [LSP booster](https://github.com/blahgeek/emacs-lsp-booster) is available as executable.
+
 Install icon fonts;
 
 ```
@@ -40,14 +44,23 @@ $ brew install ispell
 
 # Bindings
 
+Editing:
+
+| Key | Command |
+| --- | ------- |
+| <kbd>C-z</kbd>  | Undo |
+| <kbd>C-shift-z</kbd>  | Redo |
+
 Navigation:
 
 | Key | Command |
 | --- | ------- |
-| <kbd>M-Up</kbd>  | Jump N lines up |
-| <kbd>M-Down</kbd>  | Jump N lines down |
-| <kbd>M-Left</kbd>  | Undo |
-| <kbd>M-Right</kbd>  | Redo |
+| <kbd>S-Up</kbd>  | Jump N lines up |
+| <kbd>S-Down</kbd>  | Jump N lines down |
+| <kbd>M-Left</kbd>  | Switch to left window |
+| <kbd>M-Right</kbd>  | Switch to right window |
+| <kbd>M-Down</kbd> | Switch to window below (or minibuffer) |
+| <kbd>M-Up</kbd> | Switch to window above |
 | <kbd>M-o</kbd>  | Switch windows w/ ace-window |
 | <kbd>M-s</kbd>  | Search buffer w/ swiper |
 
@@ -58,17 +71,29 @@ Programming:
 | <kbd>M-i e</kbd> | List errors (LSP) |
 | <kbd>M-i d</kbd> | Toggle debugging mode |
 | <kbd>M-i r</kbd> | Rename (LSP) |
-| <kbd>M-i f</kbd> | Execute code action suggested by LSP |
+| <kbd>M-i a</kbd> | Execute code action suggested by LSP |
 | <kbd>M-i j</kbd> | Jump to a symbol in the buffer |
 | <kbd>M-i i</kbd> | Re-organize imports |
 | <kbd>M-i g</kbd> | Go-to-imlementation |
 | <kbd>M-i t</kbd> | Go to type definition |
-| <kbd>M-i c</kbd> | Find references |
+| <kbd>M-i d</kbd> | Find references |
+| <kbd>M-i f</kbd> | Format buffer |
+| <kbd>M-i l</kbd> | Go to last change |
 | <kbd>M-i -</kbd> | Revert buffer |
 | <kbd>M-\</kbd> | Yasnippet |
 | <kbd>M-RET</kbd> | Trigger + Complete Copilot |
 | <kbd>M-y</kbd> | Trigger + Complete Copilot |
+| <kbd>M-\</kbd> | Yasnippet |
+| <kbd>M-\</kbd> | Yasnippet menu |
+| <kbd>M-i y</kbd> | Yasnippet menu |
 
+Copilot:
+
+| Key | Command |
+| --- | ------- |
+| <kbd>M-y</kbd> | Complete or accept |
+| <kbd>C-Ret</kbd> | Accept by line |
+| <kbd>M-Ret</kbd> | Accept by word |
 
 Writing:
 
@@ -98,10 +123,9 @@ Git:
 | Key | Command |
 | --- | ------- |
 | <kbd>M-g s</kbd> | Git status |
+| <kbd>M-g c</kbd> | Create commit |
 | <kbd>M-g d</kbd> | Git diff for working tree |
-| <kbd>M-g b</kbd> | Git diff for the active buffer |
-| <kbd>M-g -</kbd> | Stash the worktree |
-| <kbd>M-g =</kbd> | Apply stash |
+| <kbd>M-g f</kbd> | Git diff for the active buffer |
 | <kbd>M-i up</kbd> | Push local branch to remote |
 | <kbd>M-i down</kbd> | Pull from remote branch |
 
@@ -131,5 +155,3 @@ export LSP_USE_PLISTS=true
 ```
 
 Source: https://emacs-lsp.github.io/lsp-mode/page/performance/#use-plists-for-deserialization
-
-

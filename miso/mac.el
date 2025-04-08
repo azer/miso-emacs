@@ -8,6 +8,8 @@
   (global-set-key (kbd "s-z") 'undo)
   (global-set-key (kbd "s-Z") 'redo)
   ;;(global-set-key (kbd "s-p") 'counsel-projectile-find-file)
+  (setq mac-right-option-modifier nil)
+  (setq ns-right-alternate-modifier nil)
   (setq ns-alternate-modifier 'meta)
   (setq ns-right-alternate-modifier 'none)
   )

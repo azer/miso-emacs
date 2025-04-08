@@ -29,6 +29,7 @@
 (enable "tabs")
 (enable "copilot")
 (enable "lsp")
+(enable "warnings")
 
 (set-cursor-color "#77B8E9")
 (setq cursor-type '(bar . 8))

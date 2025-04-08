@@ -7,6 +7,23 @@
               (file-name-as-directory (expand-file-name dir root)))
             (split-string (shell-command-to-string cmd) "\n" t))))
 
+(defun miso/find-or-create-file (directory)
+  "Find or create a file in DIRECTORY using consult. Excludes .git directory from the search results."
+  (let* ((default-directory (expand-file-name directory))
+         (files (directory-files-recursively default-directory "" t))
+         (files-filtered (seq-filter
+                          (lambda (file)
+                            (not (string-match-p "/\\.git/" file)))
+                          files)))
+    (find-file
+     (let ((selected (consult--read
+                      (mapcar (lambda (path) (file-relative-name path default-directory))
+                              files-filtered)
+                      :prompt "Find or create file: "
+                      :sort nil
+                      :require-match nil  ; Allow non-existing files
+                      :category 'file)))
+       (expand-file-name selected default-directory)))))
 
 (defun miso/jump-to-directory (root)
   "Jump to a directory under ROOT and create/visit a file."
